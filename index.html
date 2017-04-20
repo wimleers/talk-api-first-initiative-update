@@ -81,7 +81,11 @@
 						<h4>An unparallelled API-first platform</h4>
 						<p>All data available:</p>
 						<ul>
-							<li><strong>RESTfully</strong>, in any format <sup><small>(JSON, HAL+JSON, JSON API)</small></sup>
+							<li><strong>RESTfully</strong>
+								<ul>
+									<li>in any format <sup><small>(JSON, HAL+JSON …)</small></sup></li>
+									<li>in multiple flavors <sup><small>("HTTP purist", <code>jsonapi.org</code> …)</small></sup></li>
+								</ul>
 							</li>
 							<li><strong>non-RESTfully</strong>
 								<ul>
@@ -93,20 +97,22 @@
 						<p>… using any authentication mechanism <sup><small>(Cookie, Basic Auth, OAuth2)</small></sup></p>
 					</section>
 					<section id="vision-goals--goals">
+						<h3>Goals</h3>
 						<dl>
 							<dt>Must have</dt>
 							<dd class="fragment">
 								<ul>
-								<li><del>Make D8 REST usable</del></li>
-								<li>Make D8 REST best-in-class</li>
+								<li><del>Make D8 REST usable</del> <span class="fragment">✅</span></li>
+								<li>Make D8 REST best-in-class <span class="fragment">🏋️</span></li>
+								<li>Excellent documentation <span class="fragment">🏋️</span></li>
 								</ul>
 							</dd>
 							<dt>Should have</dt>
 							<dd class="fragment">
 								<ul>
-									<li>JSON API support (targeting 8.3)</li>
-									<li>UUID and revision support (targeting 8.3)</li>
-									<li>GraphQL support (targeting post-8.3)</li>
+									<li>JSON API <span class="fragment">🏋</span></li>
+									<li>UUID and revision</li>
+									<li>GraphQL</li>
 								</ul>
 							</dd>
 							<dt>Could have</dt>
@@ -118,41 +124,76 @@
 							</dd>
 						</dl>
 					</section>
+					<section id="vision-goals--why">
+						<h3>Why?</h3>
+						<dl>
+							<dt>REST API</dt>
+							<dd class="fragment" style="font-size: 80%">
+								<ul>
+									<li>Multiple formats</li>
+									<li>Non-entity REST resources</li>
+									<li>Very configurable</li>
+								</ul>
+							</dd>
+							<dt>JSON API <em>→ stable in 8.3 contrib → core</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								<ul>
+									<li>Opinionated spec ⇒ better tooling, less bikeshedding
+									<li>Collection support ⇒ <del>custom REST export views</del>
+									<li>Not configurable: any entity that Entity Access allows</li>
+								</ul>
+							</dd>
+							<dt>GraphQL <em>→ stable in contrib</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								Great for UI components to fetch only necessary data!
+							</dd>
+							<dt>Excellent documentation <em>→ stable in contrib</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								Starting is too painful ⇒ docs with interactive examples
+							</dd>
+						</dl>
+					</section>
 					<section id="vision-goals--current">
 						<dl>
-							<dt>REST API <em>best in class</em></dt>
+							<dt>REST API <em>→ best in class</em></dt>
 							<dd class="fragment" style="font-size: 80%">
-								Drupal 8’s REST API should be usable by 8.2 and best-in-class by 8.3, including features such as configuration entity support, translation and file upload support, and pagination.
+								Missing: translations, modifying config, file uploads.
+								<br>
+								<em class="fragment">Much is blocked on subsystems in Drupal 8.</em>
 							</dd>
-							<dt>JSON API <em>core experimental</em></dt>
+							<dt>JSON API <em>→ stable in 8.3 contrib → core</em></dt>
 							<dd class="fragment" style="font-size: 80%">
-								JSON API is highly opinionated and prescriptive, which means better interoperability and less bikeshedding about details. A possible replacement for HAL+JSON.
+								Missing: comprehensive test coverage, plus the above.
 							</dd>
-							<dt>GraphQL <em>contrib stable</em></dt>
+							<dt>GraphQL <em>→ stable in contrib</em></dt>
 							<dd class="fragment" style="font-size: 80%">
-								GraphQL is well-suited for fetching data to be used for UI components and makes data available in a non-RESTful manner.
+								Missing: active development.
+							</dd>
+							<dt>Excellent documentation</dt>
+							<dd class="fragment" style="font-size: 80%">
+								Missing: active development, standardization.
+								<br>
+								<em class="fragment">Currently: <code>rest_api_doc</code>, Schemata, Docson, OpenAPI.</em>
 							</dd>
 						</dl>
 					</section>
 					<section id="vision-goals--next">
+						<h3>Next</h3>
+						<p><small>Short term or long term? Depends on contributions!</small></p>
 						<dl>
-							<dt>UUIDs <em>and revisions</em></dt>
+							<dt>UUIDs + revisions</dt>
 							<dd class="fragment" style="font-size: 80%">
-								<strong>D8 REST lacks UUID support.</strong>
-								<br>
-								The “Entity” REST resource does not support revisions and uses IDs; RELAXed Web Services adds support for both.
+								“Entity” + REST: no revisions, uses IDs
+								<br> → RELAXed Web Services.
 							</dd>
-							<dt>OAuth 2 <em>Bearer Tokens</em></dt>
+							<dt>OAuth 2</dt>
 							<dd class="fragment" style="font-size: 80%">
-								<strong>REST uses Basic/Cookie Auth.</strong>
-								<br>
-								Basic Auth is limited and insecure over HTTP connections, and Cookie Auth is only useful for browsers (i.e. progressive decoupling). A more secure auth mechanism is needed.
+								JS &amp; native app developers expect OAuth 2.
 							</dd>
-							<dt>replication.io <em>CouchDB support</em></dt>
+							<dt>CouchDB support</dt>
 							<dd class="fragment" style="font-size: 80%">
-								<strong>REST lacks content replicability.</strong>
-								<br>
-								RELAXed Web Services makes it possible to use REST for complex workflows or content replication for deployment purposes or for offline-first implementations using PouchDB.
+								Content replicability for deployment/offline-first
+								<br> → RELAXed Web Services.
 							</dd>
 						</dl>
 					</section>
