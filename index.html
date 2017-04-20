@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>API-first initiative</title>
+
+		<link rel="stylesheet" href="src/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="src/reveal.js/css/theme/black.css">
+		<link rel="stylesheet" href="theme/css/theme/drupalcon2017_baltimore.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="src/reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'src/reveal.js/css/print/pdf.css' : 'src/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro" data-state="baltimore-city">
+					<img src="theme/img/baltimore-logo.svg" class="logo" alt="DrupalCon Baltimore 2017" style="margin:0"/>
+					<h2>API-first initiative</h2>
+					<table>
+						<tr>
+							<td>
+								<p>Mateu Aguiló Bosch
+									<br><small style="vertical-align: baseline">Drupal.org: e0ipso
+									<br><a href="https://twitter.com/e0ipso">@e0ipso</a>
+									<br>&nbsp;
+									<br>
+									<br>Senior Developer
+									<br><img src="img/lullabot.gif" alt="Lullabot logo" style="border:none;height:2em;background:none;"></small>
+								</p>
+							</td>
+							<td>
+								<p>Wim Leers
+									<br><small style="vertical-align: baseline">Drupal.org: Wim Leers
+									<br><a href="https://twitter.com/wimleers">@wimleers</a>
+									<br><a href="http://wimleers.com/">wimleers.com</a>
+									<br>
+									<br>Principal Software Engineer, OCTO
+									<br><img src="img/acquia.png" alt="Acquia logo" style="border:none;height:1em;background:none;"></small>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<section id="overview">
+						<h3>What we'll cover</h3>
+						<ul>
+							<li>Vision &amp; goals</li>
+							<li>Roadmap and background</li>
+							<li>Outstanding challenges</li>
+							<li><em>Epilogue:</em> Dogfooding API-first</li>
+							<li>Open discussion</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section id="vision-goals">
+						<p>Vision &amp; goals</p>
+					</section>
+					<section id="vision-goals--driesquote">
+						<figure>
+							<blockquote>I believe that it is important to have <u>first-class web services</u> in Drupal out of the box in order to enable <u>top-notch APIs</u> and continue our evolution to become <u>API-first</u>.</blockquote>
+							<figcaption>— Dries Buytaert</figcaption>
+						</figure>
+					</section>
+					<section id="vision-goals--vision">
+						<h4>An unparallelled API-first platform</h4>
+						<p>All data available:</p>
+						<ul>
+							<li><strong>RESTfully</strong>, in any format <sup><small>(JSON, HAL+JSON, JSON API)</small></sup>
+							</li>
+							<li><strong>non-RESTfully</strong>
+								<ul>
+									<li>via GraphQL</li>
+									<li>via CouchDB protocol, for replication &amp; syncing</li>
+								</ul>
+							</li>
+						</ul>
+						<p>… using any authentication mechanism <sup><small>(Cookie, Basic Auth, OAuth2)</small></sup></p>
+					</section>
+					<section id="vision-goals--goals">
+						<dl>
+							<dt>Must have</dt>
+							<dd class="fragment">
+								<ul>
+								<li><del>Make D8 REST usable</del></li>
+								<li>Make D8 REST best-in-class</li>
+								</ul>
+							</dd>
+							<dt>Should have</dt>
+							<dd class="fragment">
+								<ul>
+									<li>JSON API support (targeting 8.3)</li>
+									<li>UUID and revision support (targeting 8.3)</li>
+									<li>GraphQL support (targeting post-8.3)</li>
+								</ul>
+							</dd>
+							<dt>Could have</dt>
+							<dd class="fragment">
+								<ul>
+									<li>CouchDB support</li>
+									<li>OAuth2 support</li>
+								</ul>
+							</dd>
+						</dl>
+					</section>
+					<section id="vision-goals--current">
+						<dl>
+							<dt>REST API <em>best in class</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								Drupal 8’s REST API should be usable by 8.2 and best-in-class by 8.3, including features such as configuration entity support, translation and file upload support, and pagination.
+							</dd>
+							<dt>JSON API <em>core experimental</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								JSON API is highly opinionated and prescriptive, which means better interoperability and less bikeshedding about details. A possible replacement for HAL+JSON.
+							</dd>
+							<dt>GraphQL <em>contrib stable</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								GraphQL is well-suited for fetching data to be used for UI components and makes data available in a non-RESTful manner.
+							</dd>
+						</dl>
+					</section>
+					<section id="vision-goals--next">
+						<dl>
+							<dt>UUIDs <em>and revisions</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								<strong>D8 REST lacks UUID support.</strong>
+								<br>
+								The “Entity” REST resource does not support revisions and uses IDs; RELAXed Web Services adds support for both.
+							</dd>
+							<dt>OAuth 2 <em>Bearer Tokens</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								<strong>REST uses Basic/Cookie Auth.</strong>
+								<br>
+								Basic Auth is limited and insecure over HTTP connections, and Cookie Auth is only useful for browsers (i.e. progressive decoupling). A more secure auth mechanism is needed.
+							</dd>
+							<dt>replication.io <em>CouchDB support</em></dt>
+							<dd class="fragment" style="font-size: 80%">
+								<strong>REST lacks content replicability.</strong>
+								<br>
+								RELAXed Web Services makes it possible to use REST for complex workflows or content replication for deployment purposes or for offline-first implementations using PouchDB.
+							</dd>
+						</dl>
+					</section>
+				</section>
+
+				<section>
+					<section id="roadmap-background">
+						<p>Roadmap &amp; background</p>
+					</section>
+					<section id="roadmap-background--team">
+						<h3>Team</h3>
+						<p>Initiative coordinator: Wim Leers</p>
+						<dl>
+							<dt>REST — subcoordinator: Wim Leers</dt>
+							<dd>tedbow, dawehner, Wim Leers</dd>
+							<dt>JSON API — subcoordinator: e0ipso</dt>
+							<dd>e0ipso, gabesullice, dawehner</dd>
+							<dt>GraphQL</dt>
+							<dd>fubhy (contrib module maintainer)</dd>
+							<dt>OAuth2</dt>
+							<dd>e0ipso (contrib module maintainer)</dd>
+							<dt>UUIDs/revisions</dt>
+							<dd>Workflow initiative?</dt>
+					</section>
+					<section id="roadmap-background--roadmap">
+						<p>…</p>
+					</section>
+					<section id="roadmap-background--tooling">
+						<img src="img/waterwheel.png" style="background: white">
+						<p>
+							<a href="https://github.com/acquia/waterwheel.js">github.com/acquia/waterwheel.js</a>
+							<br>
+							<a href="https://github.com/acquia/waterwheel.swift">github.com/acquia/waterwheel.swift</a>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section id="outstanding-challenges">
+						<p>Outstanding challenges</p>
+					</section>
+					<section id="outstanding-challenges--details">
+						<dl>
+							<dt>API versioning</dt>
+							<dd>multiple clients at different times</dd>
+							<dt>Image processing</dt>
+							<dd>consumers request images with their aspect constraints</dd>
+							<dt>Stay up to date</dt>
+							<dd>for high adaptability to the interconnected ecosystem</dd>
+							<dt>Multilingual support</dt>
+							<dd>requires multipart responses?</dd>
+						</dl>
+					</section>
+				</section>
+
+				<section id="discuss">
+					<section id="discuss--start">
+						<h3>Open discussion</h3>
+					</section>
+					<section id="discuss--too-quiet">
+						<p>You are too quiet…</p>
+					</section>
+					<section id="discuss--q1">
+						<p>How much of this should we have in Drupal core?</p>
+					</section>
+					<section id="discuss--q2">
+						<p>What are the best places to start using this internally?</p>
+					</section>
+					<section id="discuss--q3">
+						<p>What features are you excited about? Why?</p>
+					</section>
+					<section id="discuss--q4">
+						<p>What authentication providers should we add?</p>
+					</section>
+					<section id="discuss--q5">
+						<p>Do we support decoupled admin interfaces?</p>
+					</section>
+				</section>
+
+				<section class="center" data-state="baltimore-promenade" style="font-size: 70%">
+					<img src="theme/img/baltimore-logo.svg" class="logo-small" alt="DrupalCon Baltimore 2017" />
+					<h1>WHAT DID YOU THINK?</h1>
+					<p>
+						Locate this session at the<br />DrupalCon Baltimore website:</br><a href="https://baltimore2017.drupal.org/schedule" title="Baltimore Schedule">http://baltimore2017.drupal.org/schedule</a>
+					</p>
+					<p><a href="https://www.surveymonkey.com/r/drupalconbaltimore" title="Survey">Take the survey!</a></p>
+					<h1>THANK YOU!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="src/reveal.js/lib/js/head.min.js"></script>
+		<script src="src/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				showNotes: !window.location.search.match( /no-notes/gi ),
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'src/reveal.js/plugin/markdown/marked.js' },
+					{ src: 'src/reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'src/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'src/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
