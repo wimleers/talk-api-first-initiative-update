@@ -104,20 +104,48 @@
 							<dd class="fragment">
 								<ul>
 								<li><del>Make D8 REST usable</del> <span class="fragment">✅</span></li>
-								<li>Make D8 REST best-in-class <span class="fragment">🏋️</span></li>
-								<li>Excellent documentation <span class="fragment">🏋️</span></li>
+								<li>Make D8 REST best-in-class <span class="fragment">🏋️🏋️</span></li>
+								<li>Excellent docs via OpenAPI <span class="fragment">🏋️🏋️</span></li>
 								</ul>
 							</dd>
 							<dt>Should have</dt>
 							<dd class="fragment">
 								<ul>
-									<li>JSON API <span class="fragment">🏋</span></li>
-									<li>UUID and revision</li>
-									<li>GraphQL</li>
+									<li><del>JSON API</del> <span class="fragment">✅</span></li>
+									<li>GraphQL <span class="fragment">🏋️🏋️</span></li>
+									<li>Workflows: UUID and revision</li>
 								</ul>
 							</dd>
 							<dt>Could have</dt>
 							<dd class="fragment">
+								<ul>
+									<li>CouchDB support</li>
+									<li>OAuth2 support <span class="fragment">🏋️</span></li>
+								</ul>
+							</dd>
+						</dl>
+					</section>
+					<section id="vision-goals--goals--6-months-ago">
+						<h3>Goals (6 months ago)</h3>
+						<dl>
+							<dt>Must have</dt>
+							<dd>
+								<ul>
+								<li><del>Make D8 REST usable</del> <span>✅</span></li>
+								<li>Make D8 REST best-in-class <span>🏋️</span></li>
+								<li>Excellent docs via OpenAPI <span>🏋️</span></li>
+								</ul>
+							</dd>
+							<dt>Should have</dt>
+							<dd>
+								<ul>
+									<li>JSON API <span>🏋</span></li>
+									<li>GraphQL</li>
+									<li>Workflows: UUID and revision</li>
+								</ul>
+							</dd>
+							<dt>Could have</dt>
+							<dd>
 								<ul>
 									<li>CouchDB support</li>
 									<li>OAuth2 support</li>
@@ -136,7 +164,7 @@
 									<li>Very configurable</li>
 								</ul>
 							</dd>
-							<dt>JSON API <em>→ stable in 8.3 contrib → core</em></dt>
+							<dt>JSON API <em>→ stable <small>8.3 contrib</small> → mature <small>8.4 contrib</small> → core <small>8.5</small></em></dt>
 							<dd class="fragment" style="font-size: 80%">
 								<ul>
 									<li>Opinionated spec ⇒ better tooling, less bikeshedding
@@ -144,17 +172,18 @@
 									<li>Not configurable: any entity that Entity Access allows</li>
 								</ul>
 							</dd>
-							<dt>GraphQL <em>→ stable in contrib</em></dt>
+							<dt>GraphQL <em>→ stable <small>8.4 contrib</small></em></dt>
 							<dd class="fragment" style="font-size: 80%">
 								Great for UI components to fetch only necessary data!
 							</dd>
-							<dt>Excellent documentation <em>→ stable in contrib</em></dt>
+							<dt>Excellent docs via OpenAPI <em>→ stable <small>8.4 contrib</small></em></dt>
 							<dd class="fragment" style="font-size: 80%">
 								Starting is too painful ⇒ docs with interactive examples
 							</dd>
 						</dl>
 					</section>
 					<section id="vision-goals--current">
+						<h3>Current focus</h3>
 						<dl>
 							<dt>REST API <em>→ best in class</em></dt>
 							<dd class="fragment" style="font-size: 80%">
@@ -162,19 +191,19 @@
 								<br>
 								<em class="fragment">Much is blocked on subsystems in Drupal 8.</em>
 							</dd>
-							<dt>JSON API <em>→ stable in 8.3 contrib → core</em></dt>
+							<dt>JSON API <em>→ mature <small>8.4 contrib</small> → core <small>8.5</small></em></dt>
 							<dd class="fragment" style="font-size: 80%">
 								Missing: comprehensive test coverage, plus the above.
 							</dd>
-							<dt>GraphQL <em>→ stable in contrib</em></dt>
+							<dt>GraphQL <em>→ stable <small>8.4 contrib</small></em></dt>
 							<dd class="fragment" style="font-size: 80%">
-								Missing: active development.
+								Missing: sites using it, to stabilize.
 							</dd>
-							<dt>Excellent documentation</dt>
+							<dt>Excellent docs via OpenAPI </dt>
 							<dd class="fragment" style="font-size: 80%">
-								Missing: active development, standardization.
+								6 mo ago: competition <small>(<code>rest_api_doc</code>, Schemata, Docson, OpenAPI)</small>
 								<br>
-								<em class="fragment">Currently: <code>rest_api_doc</code>, Schemata, Docson, OpenAPI.</em>
+								Now standardizing on OpenAPI!
 							</dd>
 						</dl>
 					</section>
@@ -274,8 +303,8 @@
 					</section>
 					<section id="roadmap-background--roadmap">
 						<ul>
-							<li>Core REST: further maturation</li>
-							<li>JSON API: stable <span class="fragment" style="color: red; font-size: 150%"> 🎉 RIGHT NOW 🎉</span></li>
+							<li>Core REST: mature further</li>
+							<li>JSON API: mature further, prepare for core inclusion</li>
 						</ul>
 					</section>
 					<section id="roadmap-background--tooling">
