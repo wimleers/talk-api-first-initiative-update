@@ -1,4 +1,4 @@
-																	About 50 people in the room.
+																	90 people in the room (according to Drupal Association).
 
 
 Who has worked on decoupled Drupal projects?	 					20%
