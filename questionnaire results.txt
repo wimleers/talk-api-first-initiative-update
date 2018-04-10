@@ -1,17 +1,8 @@
-																	90 people in the room (according to Drupal Association).
+?? people in the room.
 
 
 Who has worked on decoupled Drupal projects?	 					20%
-	If yes,
-		>1 year ago?												~8
-		>6 months ago?												~8
-		<6 months ago/now?											~8
-		was it critical to the overall project? 					~15
 	If no, would you like to in the future? 						40%
 Did you use
-	Core's REST module? and the contrib REST UI module?				~20 ~6
-		Did it noticeably improve in the past year?					0
-	JSON API?														~15
-	GraphQL?														~5
-	RELAXed Web Services/CouchDB									~4
-	A combination?													~3
+	Core's REST module?
+	JSON API or GraphQL?														~15
