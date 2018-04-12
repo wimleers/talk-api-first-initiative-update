@@ -1,8 +1,8 @@
-?? people in the room.
+~70 (?) people in the room.
 
 
-Who has worked on decoupled Drupal projects?	 					20%
-	If no, would you like to in the future? 						40%
+Who has worked on decoupled Drupal projects?	 					25 — 30%
+	If no, would you like to in the future? 						\
 Did you use
-	Core's REST module?
-	JSON API or GraphQL?														~15
+	Core's REST module?														10
+	JSON API or GraphQL?														15
